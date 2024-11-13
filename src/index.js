@@ -8,7 +8,7 @@ const content = document.querySelector("#content");
 createPage().introPage.addEventListener("click", () => {
     
     createScreen().knob.addEventListener("click", () => {
-
+        console.log("run1")
         playMusic();
     });
     
