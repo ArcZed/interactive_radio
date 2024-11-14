@@ -32,5 +32,11 @@ export const playMusic = () => {
         audio.src = `${playlist[i]}`;
         audio.play();
         console.log(audio)
+    });
+    setInterval(() => {
+        console.log(audio.volume);
+    }, 500);
+    audio.addEventListener("ended", () => {
+        audio.play();
     })
 }
