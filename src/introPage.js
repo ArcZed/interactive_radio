@@ -24,7 +24,7 @@ export const createPage = () => {
         introPage.classList.add("fadeOut");
         setTimeout(() => {
             content.removeChild(introPage);
-        }, 2000);
+        }, 1000);
     });
 
     return {introPage}

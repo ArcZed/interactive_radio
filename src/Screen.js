@@ -1,6 +1,5 @@
 import styles from "./Screen.css"
-import { func } from "./Song";
-
+import {playMusic} from "./Song";
 
 export const createScreen = () => {
     
@@ -31,6 +30,7 @@ export const createScreen = () => {
     background.className = "background";
 
     const calcDeg = (e) => {
+        
         const w = knob.clientWidth/2;
         const h = knob.clientHeight/2;
 
@@ -61,10 +61,28 @@ export const createScreen = () => {
 
     }
 
+    const changeSong = () => {
+
+        let playlist = [];
+        let genreList = [lofi, ambient, nature];
+
+        let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue("left"));
+        let barWidth = bar.scrollWidth;
+
+        if (meterPos > 0 && meterPos < barWidth/3) {
+            playlist.push(genreList[0]);
+        }
+        else if (meterPos >  barWidth/3 && meterPos < barWidth*2/3) {
+            playlist.push(genreList[1]);
+        }
+        else {playlist.push(genreList[2]);}
+    }
+
     const rotate = (e) => {
         let angle = calcDeg(e) - 90;
         knob.style.transform = `rotate(${angle}deg)`;
         moveBar(calcDeg(e));
+
     }
 
     
@@ -78,5 +96,8 @@ export const createScreen = () => {
             window.removeEventListener("mousemove", rotate);
         });
     });
-    return {container, knob, background}
+    
+    knob.addEventListener("click", () => {
+        playMusic();
+    })
 }

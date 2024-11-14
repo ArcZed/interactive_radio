@@ -3,7 +3,7 @@ import ambient from "./music/ambient.mp3"
 import nature from "./music/nature.mp3"
 
 export const playMusic = () => {
-    const content = document.querySelector("#content");
+
     const bar = document.querySelector(".bar");
     const meter = document.querySelector(".meter");
     const audio = document.querySelector("audio")
