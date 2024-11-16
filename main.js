@@ -176,7 +176,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   playMusic: () => (/* binding */ playMusic)\n/* harmony export */ });\n/* harmony import */ var _music_lofi_mp3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./music/lofi.mp3 */ \"./src/music/lofi.mp3\");\n/* harmony import */ var _music_ambient_mp3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./music/ambient.mp3 */ \"./src/music/ambient.mp3\");\n/* harmony import */ var _music_nature_mp3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./music/nature.mp3 */ \"./src/music/nature.mp3\");\n\n\n\n\nconst playMusic = () => {\n\n    const bar = document.querySelector(\".bar\");\n    const meter = document.querySelector(\".meter\");\n    const audio = document.querySelector(\"audio\")\n\n    console.log(typeof(_music_lofi_mp3__WEBPACK_IMPORTED_MODULE_0__))\n    \n\n    let playlist = [];\n    let genreList = [_music_lofi_mp3__WEBPACK_IMPORTED_MODULE_0__, _music_ambient_mp3__WEBPACK_IMPORTED_MODULE_1__, _music_nature_mp3__WEBPACK_IMPORTED_MODULE_2__];\n\n    //get meter pos\n    let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue(\"left\"));\n    console.log(meterPos);\n\n    if (meterPos > 0 && meterPos < bar.scrollWidth/3) {\n        playlist.push(genreList[0]);\n    }\n    else if (meterPos >  bar.scrollWidth/3 && meterPos < bar.scrollWidth*2/3) {\n        playlist.push(genreList[1]);\n    }\n    else {playlist.push(genreList[2]);}\n    \n    playlist.forEach((song, i) => {\n\n        audio.pause();\n        audio.src = `${playlist[i]}`;\n        audio.play();\n        console.log(audio)\n    });\n    setInterval(() => {\n        console.log(audio.volume);\n    }, 500);\n    audio.addEventListener(\"ended\", () => {\n        audio.play();\n    })\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvU29uZy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQW9DO0FBQ0s7QUFDRjs7QUFFaEM7O0FBRVA7QUFDQTtBQUNBOztBQUVBLHVCQUF1Qiw0Q0FBSTtBQUMzQjs7QUFFQTtBQUNBLHFCQUFxQiw0Q0FBSSxFQUFFLCtDQUFPLEVBQUUsOENBQU07O0FBRTFDO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxVQUFVO0FBQ1Y7QUFDQTs7QUFFQTtBQUNBLHVCQUF1QixZQUFZO0FBQ25DO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vaW50ZXJhY3RpdmVfcmFkaW8vLi9zcmMvU29uZy5qcz9hYTY3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBsb2ZpIGZyb20gJy4vbXVzaWMvbG9maS5tcDMnO1xuaW1wb3J0IGFtYmllbnQgZnJvbSBcIi4vbXVzaWMvYW1iaWVudC5tcDNcIlxuaW1wb3J0IG5hdHVyZSBmcm9tIFwiLi9tdXNpYy9uYXR1cmUubXAzXCJcblxuZXhwb3J0IGNvbnN0IHBsYXlNdXNpYyA9ICgpID0+IHtcblxuICAgIGNvbnN0IGJhciA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuYmFyXCIpO1xuICAgIGNvbnN0IG1ldGVyID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5tZXRlclwiKTtcbiAgICBjb25zdCBhdWRpbyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCJhdWRpb1wiKVxuXG4gICAgY29uc29sZS5sb2codHlwZW9mKGxvZmkpKVxuICAgIFxuXG4gICAgbGV0IHBsYXlsaXN0ID0gW107XG4gICAgbGV0IGdlbnJlTGlzdCA9IFtsb2ZpLCBhbWJpZW50LCBuYXR1cmVdO1xuXG4gICAgLy9nZXQgbWV0ZXIgcG9zXG4gICAgbGV0IG1ldGVyUG9zID0gcGFyc2VJbnQod2luZG93LmdldENvbXB1dGVkU3R5bGUobWV0ZXIpLmdldFByb3BlcnR5VmFsdWUoXCJsZWZ0XCIpKTtcbiAgICBjb25zb2xlLmxvZyhtZXRlclBvcyk7XG5cbiAgICBpZiAobWV0ZXJQb3MgPiAwICYmIG1ldGVyUG9zIDwgYmFyLnNjcm9sbFdpZHRoLzMpIHtcbiAgICAgICAgcGxheWxpc3QucHVzaChnZW5yZUxpc3RbMF0pO1xuICAgIH1cbiAgICBlbHNlIGlmIChtZXRlclBvcyA+ICBiYXIuc2Nyb2xsV2lkdGgvMyAmJiBtZXRlclBvcyA8IGJhci5zY3JvbGxXaWR0aCoyLzMpIHtcbiAgICAgICAgcGxheWxpc3QucHVzaChnZW5yZUxpc3RbMV0pO1xuICAgIH1cbiAgICBlbHNlIHtwbGF5bGlzdC5wdXNoKGdlbnJlTGlzdFsyXSk7fVxuICAgIFxuICAgIHBsYXlsaXN0LmZvckVhY2goKHNvbmcsIGkpID0+IHtcblxuICAgICAgICBhdWRpby5wYXVzZSgpO1xuICAgICAgICBhdWRpby5zcmMgPSBgJHtwbGF5bGlzdFtpXX1gO1xuICAgICAgICBhdWRpby5wbGF5KCk7XG4gICAgICAgIGNvbnNvbGUubG9nKGF1ZGlvKVxuICAgIH0pO1xuICAgIHNldEludGVydmFsKCgpID0+IHtcbiAgICAgICAgY29uc29sZS5sb2coYXVkaW8udm9sdW1lKTtcbiAgICB9LCA1MDApO1xuICAgIGF1ZGlvLmFkZEV2ZW50TGlzdGVuZXIoXCJlbmRlZFwiLCAoKSA9PiB7XG4gICAgICAgIGF1ZGlvLnBsYXkoKTtcbiAgICB9KVxufSJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/Song.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   playMusic: () => (/* binding */ playMusic)\n/* harmony export */ });\n/* harmony import */ var _music_lofi_lofi1_mp3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./music/lofi/lofi1.mp3 */ \"./src/music/lofi/lofi1.mp3\");\n/* harmony import */ var _music_lofi_lofi2_mp3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./music/lofi/lofi2.mp3 */ \"./src/music/lofi/lofi2.mp3\");\n/* harmony import */ var _music_lofi_lofi3_mp3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./music/lofi/lofi3.mp3 */ \"./src/music/lofi/lofi3.mp3\");\n/* harmony import */ var _music_lofi_lofi4_mp3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./music/lofi/lofi4.mp3 */ \"./src/music/lofi/lofi4.mp3\");\n/* harmony import */ var _music_lofi_lofi5_mp3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./music/lofi/lofi5.mp3 */ \"./src/music/lofi/lofi5.mp3\");\n/* harmony import */ var _music_lofi_lofi6_mp3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./music/lofi/lofi6.mp3 */ \"./src/music/lofi/lofi6.mp3\");\n/* harmony import */ var _music_ambient_ambient_mp3__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./music/ambient/ambient.mp3 */ \"./src/music/ambient/ambient.mp3\");\n/* harmony import */ var _music_nature_nature_mp3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./music/nature/nature.mp3 */ \"./src/music/nature/nature.mp3\");\n\n\n\n\n\n\n\n\n\n\n\nconst playMusic = () => {\n\n    const bar = document.querySelector(\".bar\");\n    const meter = document.querySelector(\".meter\");\n    const audio = document.querySelector(\"audio\")    \n\n    let playlist = [];\n    let lofi = [_music_lofi_lofi1_mp3__WEBPACK_IMPORTED_MODULE_0__, _music_lofi_lofi2_mp3__WEBPACK_IMPORTED_MODULE_1__, _music_lofi_lofi3_mp3__WEBPACK_IMPORTED_MODULE_2__, _music_lofi_lofi4_mp3__WEBPACK_IMPORTED_MODULE_3__, _music_lofi_lofi5_mp3__WEBPACK_IMPORTED_MODULE_4__, _music_lofi_lofi6_mp3__WEBPACK_IMPORTED_MODULE_5__];\n    let genreList = [lofi, _music_ambient_ambient_mp3__WEBPACK_IMPORTED_MODULE_6__, _music_nature_nature_mp3__WEBPACK_IMPORTED_MODULE_7__];\n\n    var prevSong = [];\n\n    //get meter pos\n    let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue(\"left\"));\n\n    if (meterPos > 0 && meterPos < bar.scrollWidth/3) {\n        playlist.push(genreList[0]);\n    }\n    else if (meterPos >  bar.scrollWidth/3 && meterPos < bar.scrollWidth*2/3) {\n        playlist.push(genreList[1]);\n    }\n    else {playlist.push(genreList[2]);}\n    \n    const randomSong = (list) => {\n        let currSong = Math.floor(Math.random() * list[0].length);\n        \n        \n        \n        prevSong.push(currSong);\n        console.log(prevSong);\n        return currSong\n    }\n\n    let currSong = randomSong(playlist)\n\n    audio.pause();\n    audio.src = `${playlist[0][currSong]}`;\n    audio.play();\n  \n    audio.addEventListener(\"ended\", () => {\n        audio.pause();\n        audio.src = `${playlist[0][currSong]}`;\n        audio.play();\n    });\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvU29uZy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7O0FBQzJDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFTTtBQUNIOztBQUV2Qzs7QUFFUDtBQUNBO0FBQ0E7O0FBRUE7QUFDQSxnQkFBZ0Isa0RBQUssRUFBRSxrREFBSyxFQUFFLGtEQUFLLEVBQUUsa0RBQUssRUFBRSxrREFBSyxFQUFFLGtEQUFLO0FBQ3hELDJCQUEyQix1REFBTyxFQUFFLHFEQUFNOztBQUUxQzs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLFVBQVU7QUFDVjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTs7QUFFQTtBQUNBLG1CQUFtQixzQkFBc0I7QUFDekM7QUFDQTtBQUNBO0FBQ0E7QUFDQSx1QkFBdUIsc0JBQXNCO0FBQzdDO0FBQ0EsS0FBSztBQUNMIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vaW50ZXJhY3RpdmVfcmFkaW8vLi9zcmMvU29uZy5qcz9hYTY3Il0sInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IGxvZmkxIGZyb20gJy4vbXVzaWMvbG9maS9sb2ZpMS5tcDMnO1xuaW1wb3J0IGxvZmkyIGZyb20gJy4vbXVzaWMvbG9maS9sb2ZpMi5tcDMnO1xuaW1wb3J0IGxvZmkzIGZyb20gJy4vbXVzaWMvbG9maS9sb2ZpMy5tcDMnO1xuaW1wb3J0IGxvZmk0IGZyb20gJy4vbXVzaWMvbG9maS9sb2ZpNC5tcDMnO1xuaW1wb3J0IGxvZmk1IGZyb20gJy4vbXVzaWMvbG9maS9sb2ZpNS5tcDMnO1xuaW1wb3J0IGxvZmk2IGZyb20gJy4vbXVzaWMvbG9maS9sb2ZpNi5tcDMnO1xuXG5pbXBvcnQgYW1iaWVudCBmcm9tIFwiLi9tdXNpYy9hbWJpZW50L2FtYmllbnQubXAzXCJcbmltcG9ydCBuYXR1cmUgZnJvbSBcIi4vbXVzaWMvbmF0dXJlL25hdHVyZS5tcDNcIlxuXG5leHBvcnQgY29uc3QgcGxheU11c2ljID0gKCkgPT4ge1xuXG4gICAgY29uc3QgYmFyID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5iYXJcIik7XG4gICAgY29uc3QgbWV0ZXIgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLm1ldGVyXCIpO1xuICAgIGNvbnN0IGF1ZGlvID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImF1ZGlvXCIpICAgIFxuXG4gICAgbGV0IHBsYXlsaXN0ID0gW107XG4gICAgbGV0IGxvZmkgPSBbbG9maTEsIGxvZmkyLCBsb2ZpMywgbG9maTQsIGxvZmk1LCBsb2ZpNl07XG4gICAgbGV0IGdlbnJlTGlzdCA9IFtsb2ZpLCBhbWJpZW50LCBuYXR1cmVdO1xuXG4gICAgdmFyIHByZXZTb25nID0gW107XG5cbiAgICAvL2dldCBtZXRlciBwb3NcbiAgICBsZXQgbWV0ZXJQb3MgPSBwYXJzZUludCh3aW5kb3cuZ2V0Q29tcHV0ZWRTdHlsZShtZXRlcikuZ2V0UHJvcGVydHlWYWx1ZShcImxlZnRcIikpO1xuXG4gICAgaWYgKG1ldGVyUG9zID4gMCAmJiBtZXRlclBvcyA8IGJhci5zY3JvbGxXaWR0aC8zKSB7XG4gICAgICAgIHBsYXlsaXN0LnB1c2goZ2VucmVMaXN0WzBdKTtcbiAgICB9XG4gICAgZWxzZSBpZiAobWV0ZXJQb3MgPiAgYmFyLnNjcm9sbFdpZHRoLzMgJiYgbWV0ZXJQb3MgPCBiYXIuc2Nyb2xsV2lkdGgqMi8zKSB7XG4gICAgICAgIHBsYXlsaXN0LnB1c2goZ2VucmVMaXN0WzFdKTtcbiAgICB9XG4gICAgZWxzZSB7cGxheWxpc3QucHVzaChnZW5yZUxpc3RbMl0pO31cbiAgICBcbiAgICBjb25zdCByYW5kb21Tb25nID0gKGxpc3QpID0+IHtcbiAgICAgICAgbGV0IGN1cnJTb25nID0gTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogbGlzdFswXS5sZW5ndGgpO1xuICAgICAgICBcbiAgICAgICAgXG4gICAgICAgIFxuICAgICAgICBwcmV2U29uZy5wdXNoKGN1cnJTb25nKTtcbiAgICAgICAgY29uc29sZS5sb2cocHJldlNvbmcpO1xuICAgICAgICByZXR1cm4gY3VyclNvbmdcbiAgICB9XG5cbiAgICBsZXQgY3VyclNvbmcgPSByYW5kb21Tb25nKHBsYXlsaXN0KVxuXG4gICAgYXVkaW8ucGF1c2UoKTtcbiAgICBhdWRpby5zcmMgPSBgJHtwbGF5bGlzdFswXVtjdXJyU29uZ119YDtcbiAgICBhdWRpby5wbGF5KCk7XG4gIFxuICAgIGF1ZGlvLmFkZEV2ZW50TGlzdGVuZXIoXCJlbmRlZFwiLCAoKSA9PiB7XG4gICAgICAgIGF1ZGlvLnBhdXNlKCk7XG4gICAgICAgIGF1ZGlvLnNyYyA9IGAke3BsYXlsaXN0WzBdW2N1cnJTb25nXX1gO1xuICAgICAgICBhdWRpby5wbGF5KCk7XG4gICAgfSk7XG59Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/Song.js\n");
 
 /***/ }),
 
@@ -220,30 +220,80 @@ module.exports = __webpack_require__.p + "f950ce15d95898296fff.png";
 
 /***/ }),
 
-/***/ "./src/music/ambient.mp3":
-/*!*******************************!*\
-  !*** ./src/music/ambient.mp3 ***!
-  \*******************************/
+/***/ "./src/music/ambient/ambient.mp3":
+/*!***************************************!*\
+  !*** ./src/music/ambient/ambient.mp3 ***!
+  \***************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "97d8e108e25de6fa9cda.mp3";
 
 /***/ }),
 
-/***/ "./src/music/lofi.mp3":
-/*!****************************!*\
-  !*** ./src/music/lofi.mp3 ***!
-  \****************************/
+/***/ "./src/music/lofi/lofi1.mp3":
+/*!**********************************!*\
+  !*** ./src/music/lofi/lofi1.mp3 ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "ed9fe6a480b866ccf718.mp3";
+
+/***/ }),
+
+/***/ "./src/music/lofi/lofi2.mp3":
+/*!**********************************!*\
+  !*** ./src/music/lofi/lofi2.mp3 ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "6a3a355c61deb4bcc63a.mp3";
+
+/***/ }),
+
+/***/ "./src/music/lofi/lofi3.mp3":
+/*!**********************************!*\
+  !*** ./src/music/lofi/lofi3.mp3 ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "9045f416efe8c0e1ccc1.mp3";
+
+/***/ }),
+
+/***/ "./src/music/lofi/lofi4.mp3":
+/*!**********************************!*\
+  !*** ./src/music/lofi/lofi4.mp3 ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "864508113dcf82688b12.mp3";
+
+/***/ }),
+
+/***/ "./src/music/lofi/lofi5.mp3":
+/*!**********************************!*\
+  !*** ./src/music/lofi/lofi5.mp3 ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "0105c70e3e7d25253314.mp3";
+
+/***/ }),
+
+/***/ "./src/music/lofi/lofi6.mp3":
+/*!**********************************!*\
+  !*** ./src/music/lofi/lofi6.mp3 ***!
+  \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "2cb5a2a8ad6956e24e31.mp3";
 
 /***/ }),
 
-/***/ "./src/music/nature.mp3":
-/*!******************************!*\
-  !*** ./src/music/nature.mp3 ***!
-  \******************************/
+/***/ "./src/music/nature/nature.mp3":
+/*!*************************************!*\
+  !*** ./src/music/nature/nature.mp3 ***!
+  \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "b9632bada9b725971f03.mp3";
