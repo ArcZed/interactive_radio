@@ -61,23 +61,6 @@ export const createScreen = () => {
 
     }
 
-    const changeSong = () => {
-
-        let playlist = [];
-        let genreList = [lofi, ambient, nature];
-
-        let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue("left"));
-        let barWidth = bar.scrollWidth;
-
-        if (meterPos > 0 && meterPos < barWidth/3) {
-            playlist.push(genreList[0]);
-        }
-        else if (meterPos >  barWidth/3 && meterPos < barWidth*2/3) {
-            playlist.push(genreList[1]);
-        }
-        else {playlist.push(genreList[2]);}
-    }
-
     const rotate = (e) => {
         let angle = calcDeg(e) - 90;
         knob.style.transform = `rotate(${angle}deg)`;
@@ -99,5 +82,5 @@ export const createScreen = () => {
     
     knob.addEventListener("click", () => {
         playMusic();
-    })
+    });
 }
