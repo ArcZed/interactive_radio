@@ -4,42 +4,54 @@ import lofi2 from './music/lofi/lofi2.mp3';
 import lofi3 from './music/lofi/lofi3.mp3';
 import lofi4 from './music/lofi/lofi4.mp3';
 import lofi5 from './music/lofi/lofi5.mp3';
-// import lofi6 from './music/lofi/lofi6.mp3';
 
-import ambient from "./music/ambient/ambient.mp3"
+import ambient1 from "./music/ambient/ambient.mp3"
 import nature1 from "./music/nature/nature.mp3"
 
-class Genre {
-    constructor(name, ...song) {
-        this.name = name;
-        this.song = song;
+function GenreGenerator() {
+    class Genre {
+        constructor(name, ...song) {
+            this.name = name;
+            this.song = song;
+        }
     }
+
+    const createGenre = (genre, ...song) => {
+        let newGenre = new Genre(genre, ...song);
+        return newGenre;
+    }
+
+    return {createGenre}
 }
 
-const createLofi = () => {
-    let lofi = new Genre("lofi", lofi1, lofi2, lofi3, lofi4, lofi5)
-    return lofi 
-}
-
-const createNature = () => {
-    let nature = new Genre("nature", nature1);
-    return nature
-}
-
-export const playMusic = () => {
-
-    const bar = document.querySelector(".bar");
-    const meter = document.querySelector(".meter");
-    const audio = document.querySelector("audio")    
+function MusicManager() {
 
     let playlist = [];
 
-    let lofi = createLofi();
-    let nature = createNature();
+    let lofi = "lofi";
+    let ambient = "ambient";
+    let nature = "nature";
+
+    lofi = GenreGenerator().createGenre(lofi, lofi1, lofi2, lofi3, lofi4, lofi5);
+    ambient = GenreGenerator().createGenre(ambient, ambient1);
+    nature = GenreGenerator().createGenre(nature, nature1);
 
     let genreList = [lofi , ambient, nature];
-    console.log(genreList)
+    console.log(genreList);
     //get meter pos
+    
+    return {playlist, genreList}
+}
+
+function MusicPlayer () {
+
+    const bar = document.querySelector(".bar");
+    const meter = document.querySelector(".meter");
+    const audio = document.querySelector("audio");
+    
+    let playlist = MusicManager().playlist;
+    let genreList = MusicManager().genreList
+
     const calcMeterPos = () => {
         let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue("left"));
 
@@ -55,8 +67,6 @@ export const playMusic = () => {
     const playRandomSong = (list) => {
         
         let randomSong = Math.floor(Math.random()*list.length);
-        
-        console.log(randomSong, lofi.song[randomSong]);
 
         if (audio.src != ""){
             audio.src = '';
@@ -71,23 +81,29 @@ export const playMusic = () => {
         list.splice(randomSong, 1);
     }
 
-    calcMeterPos();
-    playRandomSong(playlist[0]);
+    const playSongList = () => {
 
-    audio.addEventListener("ended", () => {
+        calcMeterPos();
+        playRandomSong(playlist[0]);
 
+        audio.addEventListener("ended", () => {
         
-        if (typeof(playlist[0][0]) === "undefined"){
-            
-            lofi = createLofi();
-            nature = createNature();
-            genreList = [lofi , ambient, nature];
-            playlist.shift();
-            calcMeterPos();
-            console.log(playlist)
-            playRandomSong(playlist[0]);
-
-        }
-        else{playRandomSong(playlist[0]);}
-    });
+            if (typeof(playlist[0][0]) === "undefined"){
+                
+                playlist = MusicManager().playlist;
+                genreList = MusicManager().genreList
+                playlist.shift();
+                calcMeterPos();
+                console.log(playlist)
+                playRandomSong(playlist[0]);
+    
+            }
+            else{playRandomSong(playlist[0]);}
+        });
+    }
+    return {playSongList}
 }
+
+export const playMusic = () => {
+    MusicPlayer().playSongList();
+} 
