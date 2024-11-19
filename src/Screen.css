@@ -38,3 +38,15 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.volBtn {
+    width: 8vh;
+    height: 10vh;
+    background-image: url(./images/volume/volume-high.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    align-self: flex-end;
+    top: 2vh;
+    right: 2vh;
+}

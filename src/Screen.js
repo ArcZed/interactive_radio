@@ -1,7 +1,9 @@
 import styles from "./Screen.css"
 import {playMusic} from "./Song";
 
-export const createScreen = () => {
+import click from "./music/click.mp3"
+
+function ScreenControl() {
     
     const container = document.createElement("div")
     const bar = document.createElement("div");
@@ -9,13 +11,16 @@ export const createScreen = () => {
     const knob = document.createElement("div");
     const background = document.createElement("div");
     const audio = document.createElement("audio");
+    const volumeBtn = document.createElement("div");
 
     content.appendChild(audio);
     content.appendChild(background);
     content.appendChild(container);
     container.appendChild(bar);
     container.appendChild(knob);
+    container.appendChild(volumeBtn)
     bar.appendChild(meter);
+
 
     container.style.opacity = `${0}%`
     container.className = "container";
@@ -27,7 +32,33 @@ export const createScreen = () => {
     bar.className = "bar";
     meter.className = "meter"
     knob.className = "knob";
+    volumeBtn.className = "volBtn"
     background.className = "background";
+
+    audio.volume = 0.8
+    console.log(audio.volume);
+    const volumeControl = () => {
+
+        let volValue = audio.volume;
+
+        volumeBtn.addEventListener("hover", () => {
+            //change the visibility of the bar
+            //
+        })
+
+        volumeBtn.addEventListener("click", () => {
+            if(audio.volume != 0){
+                audio.volume = 0;
+                console.log(volValue);
+                volumeBtn.style.backgroundImage = "url(./images/volume/volume-off.png)"
+            }
+            else{
+                // volValue = value of the ball top
+                audio.volume = volValue;
+                console.log(volValue);
+            }
+        });
+    }
 
     const calcDeg = (e) => {
         
@@ -57,7 +88,7 @@ export const createScreen = () => {
 
         barMeter = ((bar.offsetWidth - meter.offsetWidth)*barMeter)/360; 
 
-        meter.style.left = `${barMeter}px`
+        meter.style.left = `${barMeter}px`;
 
     }
 
@@ -66,6 +97,11 @@ export const createScreen = () => {
         knob.style.transform = `rotate(${angle}deg)`;
         moveBar(calcDeg(e));
 
+        if(angle%15 === 0){
+            let knobClick = new Audio(click);
+            knobClick.play();
+        }
+        
     }
 
     
@@ -83,4 +119,9 @@ export const createScreen = () => {
     knob.addEventListener("click", () => {
         playMusic();
     });
+    return {volumeControl}
+}
+
+export const createScreen = () => {
+    ScreenControl().volumeControl()
 }

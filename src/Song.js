@@ -5,8 +5,11 @@ import lofi3 from './music/lofi/lofi3.mp3';
 import lofi4 from './music/lofi/lofi4.mp3';
 import lofi5 from './music/lofi/lofi5.mp3';
 
-import ambient1 from "./music/ambient/ambient.mp3"
-import nature1 from "./music/nature/nature.mp3"
+import ambient1 from "./music/ambient/ambient.mp3";
+import ambient2 from "./music/ambient/hope-to-see-you-again.mp3";
+
+
+import nature1 from "./music/nature/nature.mp3";
 
 function GenreGenerator() {
     class Genre {
@@ -24,7 +27,7 @@ function GenreGenerator() {
     return {createGenre}
 }
 
-function MusicManager() {
+function SongLibrary() {
 
     let playlist = [];
 
@@ -33,24 +36,22 @@ function MusicManager() {
     let nature = "nature";
 
     lofi = GenreGenerator().createGenre(lofi, lofi1, lofi2, lofi3, lofi4, lofi5);
-    ambient = GenreGenerator().createGenre(ambient, ambient1);
+    ambient = GenreGenerator().createGenre(ambient, ambient1, ambient2);
     nature = GenreGenerator().createGenre(nature, nature1);
 
     let genreList = [lofi , ambient, nature];
-    console.log(genreList);
-    //get meter pos
-    
+
     return {playlist, genreList}
 }
 
-function MusicPlayer () {
+function MusicManager() {
 
     const bar = document.querySelector(".bar");
     const meter = document.querySelector(".meter");
     const audio = document.querySelector("audio");
     
-    let playlist = MusicManager().playlist;
-    let genreList = MusicManager().genreList
+    let playlist = SongLibrary().playlist;
+    let genreList = SongLibrary().genreList
 
     const calcMeterPos = () => {
         let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue("left"));
@@ -87,7 +88,6 @@ function MusicPlayer () {
         playRandomSong(playlist[0]);
 
         audio.addEventListener("ended", () => {
-        
             if (typeof(playlist[0][0]) === "undefined"){
                 
                 playlist = MusicManager().playlist;
@@ -105,5 +105,5 @@ function MusicPlayer () {
 }
 
 export const playMusic = () => {
-    MusicPlayer().playSongList();
+    MusicManager().playSongList();
 } 
