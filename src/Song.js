@@ -9,7 +9,8 @@ import ambient1 from "./music/ambient/ambient.mp3";
 import ambient2 from "./music/ambient/hope-to-see-you-again.mp3";
 
 
-import nature1 from "./music/nature/nature.mp3";
+import rain from "./music/nature/thunder-rain.mp3";
+import forest from "./music/nature/forest.mp3"
 
 function GenreGenerator() {
     class Genre {
@@ -37,7 +38,7 @@ function SongLibrary() {
 
     lofi = GenreGenerator().createGenre(lofi, lofi1, lofi2, lofi3, lofi4, lofi5);
     ambient = GenreGenerator().createGenre(ambient, ambient1, ambient2);
-    nature = GenreGenerator().createGenre(nature, nature1);
+    nature = GenreGenerator().createGenre(nature, rain, forest);
 
     let genreList = [lofi , ambient, nature];
 
@@ -51,7 +52,10 @@ function MusicManager() {
     const audio = document.querySelector("audio");
     
     let playlist = SongLibrary().playlist;
-    let genreList = SongLibrary().genreList
+    let genreList = SongLibrary().genreList;
+
+
+    console.log(playlist, genreList);
 
     const calcMeterPos = () => {
         let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue("left"));
@@ -71,8 +75,8 @@ function MusicManager() {
 
         if (audio.src != ""){
             audio.src = '';
-            audio.pause();
             audio.currentTime = 0;
+            audio.pause();
         }
 
         audio.src = `${list[randomSong]}`;
@@ -88,13 +92,13 @@ function MusicManager() {
         playRandomSong(playlist[0]);
 
         audio.addEventListener("ended", () => {
+            console.log(playlist, genreList);
             if (typeof(playlist[0][0]) === "undefined"){
                 
-                playlist = MusicManager().playlist;
-                genreList = MusicManager().genreList
-                playlist.shift();
+                playlist = SongLibrary().playlist;
+                genreList = SongLibrary().genreList;
+                console.log(playlist, genreList);
                 calcMeterPos();
-                console.log(playlist)
                 playRandomSong(playlist[0]);
     
             }

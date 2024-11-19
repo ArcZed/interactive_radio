@@ -3,6 +3,10 @@ import {playMusic} from "./Song";
 
 import click from "./music/click.mp3"
 
+import volHigh from "./images/volume/volume-high.png"
+import volLow from "./images/volume/volume-low.png"
+import volOff from "./images/volume/volume-off.png"
+
 function ScreenControl() {
     
     const container = document.createElement("div")
@@ -35,8 +39,8 @@ function ScreenControl() {
     volumeBtn.className = "volBtn"
     background.className = "background";
 
-    audio.volume = 0.8
-    console.log(audio.volume);
+    audio.volume = 0.8;
+
     const volumeControl = () => {
 
         let volValue = audio.volume;
@@ -49,11 +53,12 @@ function ScreenControl() {
         volumeBtn.addEventListener("click", () => {
             if(audio.volume != 0){
                 audio.volume = 0;
-                console.log(volValue);
-                volumeBtn.style.backgroundImage = "url(./images/volume/volume-off.png)"
+                console.log(volOff);
+                volumeBtn.style.backgroundImage = `url(${volOff})`;
             }
             else{
                 // volValue = value of the ball top
+                volumeBtn.style.backgroundImage = `url(${volHigh})`;
                 audio.volume = volValue;
                 console.log(volValue);
             }
@@ -97,7 +102,7 @@ function ScreenControl() {
         knob.style.transform = `rotate(${angle}deg)`;
         moveBar(calcDeg(e));
 
-        if(angle%15 === 0){
+        if(angle%20 === 0){
             let knobClick = new Audio(click);
             knobClick.play();
         }
