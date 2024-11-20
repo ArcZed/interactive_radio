@@ -4,7 +4,7 @@ import { createScreen } from "./Screen";
 
 createPage().introPage.addEventListener("click", () => {
     createScreen();
-})
+});
 
 
 
