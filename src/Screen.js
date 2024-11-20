@@ -51,12 +51,12 @@ function ScreenControl() {
         })
 
         volumeBtn.addEventListener("click", () => {
-            if(audio.volume != 0){
+            if(audio.volume != 0) {
                 audio.volume = 0;
                 console.log(volOff);
                 volumeBtn.style.backgroundImage = `url(${volOff})`;
             }
-            else{
+            else {
                 // volValue = value of the ball top
                 volumeBtn.style.backgroundImage = `url(${volHigh})`;
                 audio.volume = volValue;
@@ -90,9 +90,7 @@ function ScreenControl() {
         if (barMeter < 0){
             barMeter = 360 + barMeter;
         }
-
         barMeter = ((bar.offsetWidth - meter.offsetWidth)*barMeter)/360; 
-
         meter.style.left = `${barMeter}px`;
 
     }
@@ -102,10 +100,10 @@ function ScreenControl() {
         knob.style.transform = `rotate(${angle}deg)`;
         moveBar(calcDeg(e));
 
-        if(angle%20 === 0){
-            let knobClick = new Audio(click);
-            knobClick.play();
-        }
+        // if(angle%20 === 0){
+        //     let knobClick = new Audio(click);
+        //     knobClick.play();
+        // }
         
     }
 

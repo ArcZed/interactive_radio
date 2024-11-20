@@ -24,7 +24,6 @@ function GenreGenerator() {
         let newGenre = new Genre(genre, ...song);
         return newGenre;
     }
-
     return {createGenre}
 }
 
@@ -54,9 +53,6 @@ function MusicManager() {
     let playlist = SongLibrary().playlist;
     let genreList = SongLibrary().genreList;
 
-
-    console.log(playlist, genreList);
-
     const calcMeterPos = () => {
         let meterPos = parseInt(window.getComputedStyle(meter).getPropertyValue("left"));
 
@@ -80,9 +76,7 @@ function MusicManager() {
         }
 
         audio.src = `${list[randomSong]}`;
-        
         audio.play();
-
         list.splice(randomSong, 1);
     }
 
@@ -92,15 +86,13 @@ function MusicManager() {
         playRandomSong(playlist[0]);
 
         audio.addEventListener("ended", () => {
-            console.log(playlist, genreList);
+
             if (typeof(playlist[0][0]) === "undefined"){
-                
                 playlist = SongLibrary().playlist;
                 genreList = SongLibrary().genreList;
                 console.log(playlist, genreList);
                 calcMeterPos();
                 playRandomSong(playlist[0]);
-    
             }
             else{playRandomSong(playlist[0]);}
         });
