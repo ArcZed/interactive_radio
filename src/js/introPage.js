@@ -1,4 +1,4 @@
-import styles from '../src/intro.css';
+
 
 const content = document.querySelector("#content");
 
@@ -24,7 +24,7 @@ export const createPage = () => {
         introPage.classList.add("fadeOut");
         setTimeout(() => {
             content.removeChild(introPage);
-        }, 1000);
+        }, 500);
     });
 
     return {introPage}

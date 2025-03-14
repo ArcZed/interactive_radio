@@ -1,18 +1,18 @@
 
-import lofi1 from './music/lofi/lofi1.mp3';
-import lofi2 from './music/lofi/lofi2.mp3';
-import lofi3 from './music/lofi/lofi3.mp3';
-import lofi4 from './music/lofi/lofi4.mp3';
-import lofi5 from './music/lofi/lofi5.mp3';
+import lofi1 from '../music/lofi/lofi1.mp3';
+import lofi2 from '../music/lofi/lofi2.mp3';
+import lofi3 from '../music/lofi/lofi3.mp3';
+import lofi4 from '../music/lofi/lofi4.mp3';
+import lofi5 from '../music/lofi/lofi5.mp3';
 
-import ambient1 from "./music/ambient/green-to-blue.mp3";
-import ambient2 from "./music/ambient/hope-to-see-you-again.mp3";
-import ambient3 from "./music/ambient/overthinking.mp3";
-import ambient4 from "./music/ambient/farewell.mp3";
-import ambient5 from "./music/ambient/hope-will-never-fade.mp3";
+import ambient1 from "../music/ambient/green-to-blue.mp3";
+import ambient2 from "../music/ambient/hope-to-see-you-again.mp3";
+import ambient3 from "../music/ambient/overthinking.mp3";
+import ambient4 from "../music/ambient/farewell.mp3";
+import ambient5 from "../music/ambient/hope-will-never-fade.mp3";
 
-import rain from "./music/nature/thunder-rain.mp3";
-import forest from "./music/nature/forest.mp3"
+import rain from "../music/nature/thunder-rain.mp3";
+import forest from "../music/nature/forest.mp3"
 
 function GenreGenerator() {
     class Genre {
