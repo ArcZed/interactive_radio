@@ -22,7 +22,7 @@
     );
     background-size: 600% 600%;
     
-    animation: move 10s infinite alternate;
+    animation: move 40s infinite alternate;
 }
 
 @keyframes move {
