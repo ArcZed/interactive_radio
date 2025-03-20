@@ -1,12 +1,143 @@
+:root {
+    --Pred: 255, 77, 77;
+    --Pgreen: 123, 255, 148;
+    --Pblue: 20, 135, 214;
+    --Pyellow: 247, 197, 80;
+    --Pthing: 247, 174, 248;
+    --circle-size: 80%;
+  }  
+
 .introPage{
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background-color: rgb(161, 161, 240);
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-flow: column;
     z-index: 1;
+    overflow: hidden;
+}
+
+.blobContainer {
+    filter: url(#goo) blur(40px);
+    position: absolute;
+    top: -40%;
+    left: 20%;
+}
+
+dialog {
+    position: absolute;
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 4;
+    color:rgb(248, 234, 216);
+}
+
+.blob1 {
+    position: absolute;
+    width: 80vh;
+    height: 80vh;
+    z-index: 5;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(var(--Pblue), 0.8) 0, rgba(var(--Pblue), 0) 90%) no-repeat;
+
+    top: calc(0% - var(--circle-size) / 2 );
+    left: calc(50% - var(--circle-size) / 2 - 20vh);
+
+    
+    animation: moveLR 20s ease infinite;
+}
+
+.blob2 {
+    top: 30%;
+    left: 30%;
+    position: absolute;
+    width: 80vh;
+    height: 80vh;
+    z-index: 5;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(var(--Pred), 0.8) 0, rgba(var(--Pred), 0) 80%) no-repeat;
+
+    top: calc(40% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2 + 80vh);
+    
+    transform-origin: calc(50% - 400px);
+    animation: moveCircle 20s ease infinite;
+}
+
+.blob3 {
+    top: 0%;
+    left: 10%;
+    position: absolute;
+    width: 80vh;
+    height: 80vh;
+    z-index: 5;
+    border-radius: 50%;
+
+    background: radial-gradient(circle at center, rgba(var(--Pgreen), 0.8) 0, rgba(var(--Pgreen), 0) 80%) no-repeat;
+    mix-blend-mode: hard-light;
+
+
+    top: calc(30% - var(--circle-size) / 2);
+    left: calc(60% - var(--circle-size) / 2 - 40vh);
+
+    animation: moveUD 20s ease infinite ; 
+}
+
+.blob4 {
+    top: 30%;
+    left: 30%;
+    position: absolute;
+    width: 80vh;
+    height: 80vh;
+    z-index: 5;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(var(--Pyellow), 0.8) 0, rgba(var(--Pyellow), 0) 80%) no-repeat;
+
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(80% - var(--circle-size) / 2 + 80vh);
+    
+    transform-origin: calc(50% - 400px);
+    animation: moveCircle 20s ease infinite reverse;
+}
+
+@keyframes moveCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveUD {
+    0% {
+        transform: translate(0%,0%);
+    }
+
+    50% {
+        transform: translate(0%,100%);
+    }
+    100% {
+        transform: translate(0%,0%);
+    }
+}
+
+@keyframes moveLR {
+    0% {
+        transform: translate(0%,0%);
+    }
+
+    50% {
+        transform: translate(100%,100%);
+    }
+    100% {
+        transform: translate(0%,0%);
+    }
 }

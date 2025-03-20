@@ -6,6 +6,11 @@ html, body{
 #content {
     height: 100%;
 }
+
+svg {
+    position: absolute;
+}
+
 @keyframes fadeOut {
     0% {opacity: 1;}
     100% {opacity: 0;} 
@@ -27,7 +32,7 @@ html, body{
 } 
 
 .fadeOut{
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-name: fadeOut;
     animation-iteration-count: 1;
     animation-timing-function: ease;
@@ -35,7 +40,7 @@ html, body{
 }
 
 .fadeIn {
-    animation-duration: 1s;
+    animation-duration: 3s;
     animation-name: fadeIn;
     animation-iteration-count: 1;
     animation-timing-function: ease;

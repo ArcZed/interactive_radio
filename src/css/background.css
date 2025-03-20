@@ -1,9 +1,9 @@
 :root {
-    --Pred: #FF5757;
-    --Pgreen: #85FF9E;
-    --Pblue: #1E91D6;
-    --Pyellow: #F7C550;
-    --Pthing: #48639C;
+    --bgred: #660000;
+    --bggreen: #005210;
+    --bgblue: #0A3047;
+    --bgyellow: #614505;
+    --bgthing: #5C085E;
 }
 
 
@@ -12,14 +12,14 @@
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    opacity: 0.9;
-    background-color: var(--Pblue),;
+    opacity: 0.8;
     background-image: linear-gradient(
         -70deg,
-        var(--Pred),
-        var(--Pthing),
-        var(--Pgreen),
-        var(--Pyellow) 
+        var(--bgblue),
+        var(--bgred),
+        var(--bgthing),
+        var(--bggreen),
+        var(--bgyellow) 
     );
     background-size: 600% 600%;
     
