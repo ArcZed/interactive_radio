@@ -1,0 +1,49 @@
+:root {
+    --Pred: #FF5757;
+    --Pgreen: #85FF9E;
+    --Pblue: #1E91D6;
+    --Pyellow: #F7C550;
+    --Pthing: #48639C;
+}
+
+
+.background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.9;
+    background-color: var(--Pblue),;
+    background-image: linear-gradient(
+        -70deg,
+        var(--Pred),
+        var(--Pthing),
+        var(--Pgreen),
+        var(--Pyellow) 
+    );
+    background-size: 600% 600%;
+    
+    animation: move 50s infinite ;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0%;
+    }
+
+    25% {
+        background-position: 100% 0;
+    }
+
+    50% {
+        background-position: 0 100%;
+    }
+
+    75% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}

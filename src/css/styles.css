@@ -1,0 +1,61 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+#content {
+    height: 100%;
+}
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;} 
+ } 
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes blurIn {
+    0% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+@keyframes blurOut {
+    0% {opacity: 1;}
+    100% {opacity: 0.5;} 
+} 
+
+.fadeOut{
+    animation-duration: 2s;
+    animation-name: fadeOut;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.fadeIn {
+    animation-duration: 1s;
+    animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: backwards;
+}
+
+.blurIn {
+    animation-duration: 0.5s;
+    animation-name: blurIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: backwards;
+}
+
+.blurOut{
+    animation-duration: 1s;
+    animation-name: blurOut;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+
