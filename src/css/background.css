@@ -12,18 +12,17 @@
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    opacity: 0.8;
+    opacity: 1;
     background-image: linear-gradient(
-        -70deg,
-        var(--bgblue),
-        var(--bgred),
-        var(--bgthing),
-        var(--bggreen),
-        var(--bgyellow) 
+        45deg,
+        #112D55,
+        #333333,
+        #182825,
+        #123440
     );
     background-size: 600% 600%;
     
-    animation: move 50s infinite ;
+    animation: move 10s infinite alternate;
 }
 
 @keyframes move {
@@ -31,15 +30,7 @@
         background-position: 0%;
     }
 
-    25% {
-        background-position: 100% 0;
-    }
-
     50% {
-        background-position: 0 100%;
-    }
-
-    75% {
         background-position: 100% 100%;
     }
 
