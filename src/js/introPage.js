@@ -25,6 +25,7 @@ export const createPage = () => {
     const blob2 = document.createElement("div");
     const blob3 = document.createElement("div");
     const blob4 = document.createElement("div");
+    const blob5 = document.createElement("div");
     const blobContainer = document.createElement("div");
 
     introPage.appendChild(blobContainer);
@@ -33,15 +34,32 @@ export const createPage = () => {
     blobContainer.appendChild(blob3);
     blobContainer.appendChild(blob4);
 
+    blobContainer.appendChild(blob5);
+
+
     blobContainer.className = "blobContainer";
     blob1.className = "blob1";
     blob2.className = "blob2";
     blob3.className = "blob3";
     blob4.className = "blob4";
+    blob5.className = "blob5";
 
     container.style.opacity = `${0}%`
 
-    console.log(container)
+    console.log(container);
+
+    let blobRadius = parseInt(blob5.offsetWidth);
+
+    console.log(blobRadius);
+    
+    introPage.addEventListener("mousemove", (e) => {
+
+        let mouseX = e.clientX
+        let mouseY = e.clientY 
+
+        blob5.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`
+       
+    })
 
     introPage.addEventListener("click", () => {
         introPage.classList.add("fadeOut");
