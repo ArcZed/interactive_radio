@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rad.io</title>
     <script type="module" src="../interactive_radio/main.js" defer></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap');
+      </style>
 </head>
 <body>
     <div id="content">
@@ -19,11 +22,26 @@
           </svg>
         <audio src=""></audio>
         <div class="background"></div>
+        <div class="header">
+          <div class="header_left">
+            <div>About</div>
+            <div>Playlist</div>
+            <div>Contact</div>
+          </div>
+          <div class="title">Rad.io</div>
+          <div class="header_right">
+            <div>How It Works</div>
+            <div>Get Started</div>
+          </div>
+        </div>
         <div class="container">
             <div class="bar">
                 <div class="meter"></div>
             </div>
-            <div class="knob"></div>
+            <div class="knob">
+              <div class="inner_cir"></div>
+              <div class="cone"></div>
+            </div>
             <div class="volBtn"></div>
         </div>
     </div>

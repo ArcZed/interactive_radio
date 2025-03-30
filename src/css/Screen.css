@@ -1,7 +1,31 @@
 body {
     min-height: 100vh;
+    color: #FFFFFF;
+    font-family: "Manrope", sans-serif;
 }
 
+.header{
+    z-index: 1;
+    position: fixed;
+    height: 7vh;
+    width: 100vw;
+    background: #95D5B2;
+    border-bottom: solid 2px #D9D9D9;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.header_left,
+.header_right {
+    display: flex;
+    gap: 4vh
+}
+
+.title {
+    font-size: 2rem;
+}
 
 .container {
     position: absolute;
@@ -17,32 +41,62 @@ body {
 }
 
 .bar {
-    position: relative;
+    position: absolute;
+    visibility: hidden;
     width: 80%;
     height: 7vh;
-    background-image: url(../images/Group\ 12.png);
-    background-size: contain;  
-    z-index: 3;
 }
 
 .meter {
     width: 0.5em;
     height: 2.5em;
-    background-color: red;
-    border-radius: 0 0 20px 20px;
-    position: relative;
 }
 
 .knob {
     width: 50vh;
     height: 50vh;
-    background-image: url(../images/Group\ 3.png);
-    background-size: contain;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #74C69D;
+    border-radius: 50%;
+    border: solid 2px #D9D9D9; 
     z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.inner_cir {
+    position: absolute;
+    z-index: 1;
+    width: 18vh;
+    height: 18vh;
+    background: radial-gradient(
+        #40916C,
+        #95D5B2   
+    );
+    border-radius: 50%;
+    border: solid 1px #D9D9D9;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.cone {
+    
+    width: 15vh;
+    height: 30vh;
+
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    background: linear-gradient(
+        #74C69D,
+        #95D5B2
+    );    
+    border-radius: 50%;
+
+    transform: rotate(180deg);
+    
+    margin-bottom: 30vh;
+    
 }
 
 .volBtn {
@@ -50,7 +104,7 @@ body {
     width: 10vh;
     height: 10vh;
     position: absolute;
-    top: 2vh;
+    top: 12vh;
     right: 2vh;
     animation: blurOut 1 0.8s ease forwards;
 }

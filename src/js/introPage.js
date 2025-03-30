@@ -7,12 +7,12 @@ export const createPage = () => {
     const dialog = document.createElement("dialog")
     const title = document.createElement("h1");
     const description = document.createElement("h3");
-    const click = document.createElement("h3");
+    const click = document.createElement("h4");
 
     introPage.className = "introPage";
 
     title.textContent = "RAD.IO";
-    description.textContent = "Choose a playlist for your studying and relaxing";
+    description.innerHTML = "Find Your Ideal <br> Study & Relaxation <br> Soundtrack.";
     click.textContent = "Click anywhere to start";
 
     content.appendChild(introPage)

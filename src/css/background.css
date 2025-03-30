@@ -1,12 +1,3 @@
-:root {
-    --bgred: #660000;
-    --bggreen: #005210;
-    --bgblue: #0A3047;
-    --bgyellow: #614505;
-    --bgthing: #5C085E;
-}
-
-
 .background {
     position: absolute;
     width: 100vw;
@@ -15,14 +6,12 @@
     opacity: 1;
     background-image: linear-gradient(
         45deg,
-        #112D55,
-        #333333,
-        #182825,
-        #123440
+        #95D5B2,
+        #74C69D
     );
-    background-size: 600% 600%;
+    background-size: 200% 200%;
     
-    animation: move 40s infinite alternate;
+    animation: move 10s infinite alternate;
 }
 
 @keyframes move {

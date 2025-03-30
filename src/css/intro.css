@@ -1,9 +1,9 @@
 :root {
-    --Pred: 255, 77, 77;
-    --Pgreen: 123, 255, 148;
-    --Pblue: 20, 135, 214;
-    --Pyellow: 247, 197, 80;
-    --Pthing: 247, 174, 248;
+    --green1: 183, 228, 199;
+    --green2: 149, 213, 178;
+    --green3: 116, 198, 157;
+    --green4: 82, 183, 136;
+    --green5: 64, 145, 108;
     --circle-size: 80%;
   }  
 
@@ -17,6 +17,23 @@
     justify-content: center;
     z-index: 1;
     overflow: hidden;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+h3 {
+    display: flex;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 150;
+    line-height: 1;
+}
+
+h4 {
+    font-weight: 200;
+
 }
 
 .blobContainer {
@@ -34,7 +51,6 @@ dialog {
     flex-direction: column;
     align-items: center;
     z-index: 4;
-    color:rgb(248, 234, 216);
 }
 
 .blob1 {
@@ -43,7 +59,7 @@ dialog {
     height: 80vh;
 
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(var(--Pblue), 0.8) 0, rgba(var(--Pblue), 0) 80%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--green3), 0.8) 0, rgba(var(--green3), 0) 80%) no-repeat;
     mix-blend-mode: hard-light;
 
     top: calc(0% - var(--circle-size) / 2 );
@@ -59,7 +75,7 @@ dialog {
     height: 80vh;
 
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(var(--Pred), 0.8) 0, rgba(var(--Pred), 0) 80%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--green1), 0.8) 0, rgba(var(--green1), 0) 80%) no-repeat;
     mix-blend-mode: hard-light;
 
     top: calc(40% - var(--circle-size) / 2);
@@ -77,7 +93,7 @@ dialog {
 
     border-radius: 50%;
 
-    background: radial-gradient(circle at center, rgba(var(--Pgreen), 0.8) 0, rgba(var(--Pgreen), 0) 80%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--green2), 0.8) 0, rgba(var(--green2), 0) 80%) no-repeat;
     mix-blend-mode: hard-light;
 
 
@@ -93,7 +109,7 @@ dialog {
     height: 80vh;
 
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(var(--Pyellow), 0.8) 0, rgba(var(--Pyellow), 0) 80%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--green4), 0.8) 0, rgba(var(--green4), 0) 80%) no-repeat;
     mix-blend-mode: hard-light;
 
     top: calc(80% - var(--circle-size) / 2);
@@ -109,7 +125,7 @@ dialog {
     height: 60vh;
 
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(var(--Pthing), 0.8) 0, rgba(var(--Pthing), 0) 80%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--green5), 0.8) 0, rgba(var(--green5), 0) 80%) no-repeat;
     mix-blend-mode: hard-light;
 
   
