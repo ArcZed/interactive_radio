@@ -69,7 +69,8 @@ export const createPage = () => {
         introPage.addEventListener("animationend", () => {
             setTimeout(() => {
                 content.removeChild(introPage);
-            }, 2000);
+                console.log("DAw")
+            }, 100);
         });
     });
 

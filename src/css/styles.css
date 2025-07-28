@@ -32,7 +32,7 @@ svg {
 } 
 
 .fadeOut{
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-name: fadeOut;
     animation-iteration-count: 1;
     animation-timing-function: ease;
@@ -40,7 +40,7 @@ svg {
 }
 
 .fadeIn {
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-name: fadeIn;
     animation-iteration-count: 1;
     animation-timing-function: ease;
