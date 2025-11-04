@@ -1,4 +1,4 @@
-import styles from "./css/styles.css"
+import styles from "./css/animation.css"
 import background_styles from  './css/background.css'
 import screen_styles from "./css/Screen.css"
 import intro_styles from './css/intro.css';

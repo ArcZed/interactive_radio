@@ -1,8 +1,6 @@
 
 import {playMusic} from "./Song";
 
-import click from "../music/click.mp3"
-
 import volHigh from "../images/volume/volume-2.svg"
 import volLow from "../images/volume/volume-1.svg"
 import volOff from "../images/volume/volume.svg"
@@ -16,15 +14,9 @@ function ScreenControl() {
     const background = document.querySelector(".background");
     const audio = document.querySelector("audio");
     const volumeBtn = document.querySelector(".volBtn");
+    const header = document.querySelector('.header')
+    const innerCircle = document.querySelector('.inner_cir')
 
-    // container.style.opacity = `${0}%`
-    // container.className = "container";
-    // setTimeout(() => {
-    //     container.classList.add("fadeIn");
-    //     container.style.opacity = `${100}%`
-    // }, 1000);
-    
-    // volumeBtn.setAttribute("src", volHigh);    
     volumeBtn.innerHTML = `
         <svg color="white" width="60" height="60" viewBox="0 0 24 24" fill="none" 
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2">
@@ -32,13 +24,7 @@ function ScreenControl() {
     `
     audio.volume = 1;
 
-    const createVolSlider = () => {
-        
-    }
-
     const volumeControl = () => {
-
-        
 
         let volValue = audio.volume;
 
@@ -51,13 +37,12 @@ function ScreenControl() {
                 `
             }
             else {
-                // volValue = value of the ball's top attr
                 audio.volume = volValue;
                 volumeBtn.innerHTML = `
                 <svg color="white" width="60" height="60" viewBox="0 0 24 24" fill="none" 
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-            `
+                `
             }
         });
     }
@@ -96,37 +81,40 @@ function ScreenControl() {
         let angle = calcDeg(e) - 90;
         knob.style.transform = `rotate(${angle}deg)`;
         moveBar(calcDeg(e));
-
-        // if(angle%20 === 0){
-        //     let knobClick = new Audio(click);
-        //     knobClick.play();
-        // }
-        
     }
 
+    const backgroundControl = (song) => {
+        let classArr = ['default', 'lofi', 'ambient', 'nature']
+        background.classList.remove(...classArr)
+        if (song > 0 && song < bar.scrollWidth/3) {
+
+            background.classList.add('lofi')
+        }
+        else if (song >  bar.scrollWidth/3 && song < bar.scrollWidth*2/3) {
+            background.classList.add('ambient')
+        }
+        else {
+            background.classList.add('nature')
+        }
+    }
     
     knob.addEventListener("mousedown", () => {
-
+        innerCircle.style.transform = 'scale(1.2)'
         window.addEventListener("mousemove", rotate);
         knob.addEventListener("mouseup", () => {
+            innerCircle.style.transform = 'scale(1)'
             window.removeEventListener("mousemove", rotate);
+            let song = playMusic();
+            backgroundControl(song)
         });
         window.addEventListener("mouseup", () => {
             window.removeEventListener("mousemove", rotate);
         });
     });
     
-    knob.addEventListener("mousedown", () => {
-
-        knob.addEventListener("mouseup", () => {
-
-            playMusic();
-        });
-    });
     return {volumeControl}
 }
 
 export const createScreen = () => {
-
     ScreenControl().volumeControl();
 }

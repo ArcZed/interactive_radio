@@ -31,8 +31,6 @@ function GenreGenerator() {
 
 function SongLibrary() {
 
-    let playlist = [];
-
     let lofi = "lofi";
     let ambient = "ambient";
     let nature = "nature";
@@ -43,7 +41,7 @@ function SongLibrary() {
 
     let genreList = [lofi , ambient, nature];
 
-    return {playlist, genreList}
+    return {genreList}
 }
 
 function MusicManager() {
@@ -52,7 +50,7 @@ function MusicManager() {
     const meter = document.querySelector(".meter");
     const audio = document.querySelector("audio");
     
-    let playlist = SongLibrary().playlist;
+    let playlist = [];
     let genreList = SongLibrary().genreList;
 
     const calcMeterPos = () => {
@@ -65,6 +63,7 @@ function MusicManager() {
             playlist.push(genreList[1].song);
         }
         else {playlist.push(genreList[2].song);}
+        return meterPos
     }
 
     const playRandomSong = (list) => {
@@ -76,7 +75,7 @@ function MusicManager() {
             audio.currentTime = 0;
             audio.pause();
         }
-
+        
         audio.src = `${list[randomSong]}`;
         audio.play();
         list.splice(randomSong, 1);
@@ -84,7 +83,8 @@ function MusicManager() {
 
     const playSongList = () => {
 
-        calcMeterPos();
+        let genre = calcMeterPos();
+
         playRandomSong(playlist[0]);
 
         audio.addEventListener("ended", () => {
@@ -92,16 +92,16 @@ function MusicManager() {
             if (typeof(playlist[0][0]) === "undefined"){
                 playlist = SongLibrary().playlist;
                 genreList = SongLibrary().genreList;
-                console.log(playlist, genreList);
-                calcMeterPos();
+                genre = calcMeterPos();
                 playRandomSong(playlist[0]);
             }
             else{playRandomSong(playlist[0]);}
         });
+        return genre
     }
     return {playSongList}
 }
 
 export const playMusic = () => {
-    MusicManager().playSongList();
+    return MusicManager().playSongList();
 } 

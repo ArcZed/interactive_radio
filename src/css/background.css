@@ -1,17 +1,38 @@
+iframe {
+    display: none;
+}
+
+.default {
+    background: linear-gradient(
+        45deg,
+        #95D5B2,
+        #74C69D
+    );
+    color: #fff
+}
+.lofi {
+  background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
+  color: #fff;
+}
+.ambient {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+}
+.nature {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+  color: #eff;
+}
+
 .background {
     position: absolute;
     width: 100vw;
     height: 100vh;
     z-index: -1;
     opacity: 1;
-    background-image: linear-gradient(
-        45deg,
-        #95D5B2,
-        #74C69D
-    );
     background-size: 200% 200%;
-    
+    transition: all 2s ease;
     animation: move 10s infinite alternate;
+    
 }
 
 @keyframes move {

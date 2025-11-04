@@ -5,19 +5,16 @@ export const createPage = () => {
    
     const introPage = document.createElement("div");
     const dialog = document.createElement("dialog")
-    const title = document.createElement("h1");
     const description = document.createElement("h3");
     const click = document.createElement("h4");
 
     introPage.className = "introPage";
 
-    title.textContent = "RAD.IO";
     description.innerHTML = "Find Your Ideal <br> Study & Relaxation <br> Soundtrack.";
     click.textContent = "Click anywhere to start";
 
     content.appendChild(introPage)
     introPage.appendChild(dialog)
-    dialog.appendChild(title);
     dialog.appendChild(description);
     dialog.appendChild(click);
 
@@ -44,13 +41,7 @@ export const createPage = () => {
     blob4.className = "blob4";
     blob5.className = "blob5";
 
-    container.style.opacity = `${0}%`
-
-    console.log(container);
-
-    let blobRadius = parseInt(blob5.offsetWidth);
-
-    console.log(blobRadius);
+    container.style.opacity = `0%`
     
     introPage.addEventListener("mousemove", (e) => {
 
@@ -69,7 +60,6 @@ export const createPage = () => {
         introPage.addEventListener("animationend", () => {
             setTimeout(() => {
                 content.removeChild(introPage);
-                console.log("DAw")
             }, 100);
         });
     });
