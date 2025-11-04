@@ -54,13 +54,13 @@ export const createPage = () => {
 
     introPage.addEventListener("click", () => {
         introPage.classList.add("fadeOut");
-        container.classList.add("fadeIn");
         container.style.opacity = `${100}%`
 
         introPage.addEventListener("animationend", () => {
             setTimeout(() => {
                 content.removeChild(introPage);
-            }, 100);
+                content.removeChild(introPage);
+            });
         });
     });
 

@@ -1,38 +1,69 @@
+@property --lofi1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #ff6f91; /* warm rose pink */
+}
+
+@property --lofi2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #3a0ca3; /* deep indigo violet */
+}
+
+/* 🌌 Ambient Two-Tone Dark Theme
+   → cold blue + subtle violet for a digital night-sky vibe */
+@property --ambient1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #0f2027; /* black-blue shadow */
+}
+
+@property --ambient2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #2c5364; /* steel-cyan highlight */
+}
+
+/* 🌿 Nature Two-Tone Dark Theme
+   → earthy green + golden accent for contrast and warmth */
+@property --nature1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #004d40; /* deep teal-green */
+}
+
+@property --nature2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #c0ca33; /* muted golden lime */
+}
+@property --default1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #95d5b2;
+}
+
+@property --default2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #74c69d;
+}
 iframe {
     display: none;
 }
 
-.default {
-    background: linear-gradient(
-        45deg,
-        #95D5B2,
-        #74C69D
-    );
-    color: #fff
-}
-.lofi {
-  background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
-  color: #fff;
-}
-.ambient {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff;
-}
-.nature {
-  background: linear-gradient(135deg, #11998e, #38ef7d);
-  color: #eff;
-}
-
 .background {
+    margin: -20px;
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 105vw;
+    height: 105vh;
     z-index: -1;
+    background: linear-gradient(135deg, var(--default1), var(--default2));
     opacity: 1;
     background-size: 200% 200%;
-    transition: all 2s ease;
+    transition: --default1 1s, --default2 1s;
     animation: move 10s infinite alternate;
-    
+    filter: blur(20px);
 }
 
 @keyframes move {

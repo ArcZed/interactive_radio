@@ -7,15 +7,14 @@ import volOff from "../images/volume/volume.svg"
 
 function ScreenControl() {
 
-    const container = document.querySelector(".container");
     const bar = document.querySelector(".bar");
     const meter = document.querySelector(".meter");
     const knob = document.querySelector(".knob");
     const background = document.querySelector(".background");
     const audio = document.querySelector("audio");
     const volumeBtn = document.querySelector(".volBtn");
-    const header = document.querySelector('.header')
-    const innerCircle = document.querySelector('.inner_cir')
+    const innerCircle = document.querySelector('.inner_cir');
+    const cone = document.querySelector('.cone')
 
     volumeBtn.innerHTML = `
         <svg color="white" width="60" height="60" viewBox="0 0 24 24" fill="none" 
@@ -86,23 +85,30 @@ function ScreenControl() {
     const backgroundControl = (song) => {
         let classArr = ['default', 'lofi', 'ambient', 'nature']
         background.classList.remove(...classArr)
-        if (song > 0 && song < bar.scrollWidth/3) {
 
-            background.classList.add('lofi')
+        if (song > 0 && song < bar.scrollWidth/3) {
+            background.style.setProperty('--default1', 'var(--lofi1)');
+            background.style.setProperty('--default2', 'var(--lofi2)');
         }
         else if (song >  bar.scrollWidth/3 && song < bar.scrollWidth*2/3) {
-            background.classList.add('ambient')
+            background.style.setProperty('--default1', 'var(--ambient1)');
+            background.style.setProperty('--default2', 'var(--ambient2)');
         }
         else {
-            background.classList.add('nature')
+            background.style.setProperty('--default1', 'var(--nature1)');
+            background.style.setProperty('--default2', 'var(--nature2)');
         }
     }
     
     knob.addEventListener("mousedown", () => {
-        innerCircle.style.transform = 'scale(1.2)'
+
+        innerCircle.style.transform = 'scale(1.2)';
+        cone.style.opacity = '1';
         window.addEventListener("mousemove", rotate);
+
         knob.addEventListener("mouseup", () => {
             innerCircle.style.transform = 'scale(1)'
+            cone.style.opacity = '0.5';
             window.removeEventListener("mousemove", rotate);
             let song = playMusic();
             backgroundControl(song)

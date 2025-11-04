@@ -1,46 +1,7 @@
 html, body{
     height: 100%;
     margin: 0;
-    transition: background 1s ease, color 0.6s ease;
 }
-  
-  /* ========== THEMES ========== */
-  
-  /* Default */
-  body.default-theme {
-    background: linear-gradient(120deg, #f4f4f4, #eaeaea);
-    color: #333;
-  }
-  
-  /* Lofi Theme */
-  body.lofi-theme {
-    background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
-    color: #fff;
-  }
-  
-  body.lofi-theme button {
-    background: linear-gradient(45deg, #673ab7, #9575cd);
-  }
-  
-  /* Ambient Theme */
-  body.ambient-theme {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #e3f2fd;
-  }
-  
-  body.ambient-theme button {
-    background: linear-gradient(45deg, #0288d1, #26c6da);
-  }
-  
-  /* Nature Theme */
-  body.nature-theme {
-    background: linear-gradient(135deg, #11998e, #38ef7d);
-    color: #e8f5e9;
-  }
-  
-  body.nature-theme button {
-    background: linear-gradient(45deg, #2e7d32, #66bb6a);
-  }
 
 
 #content {
